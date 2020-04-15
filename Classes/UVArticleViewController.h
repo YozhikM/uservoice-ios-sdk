@@ -11,7 +11,7 @@
 
 #import <WebKit/WebKit.h>
 
-@interface UVArticleViewController : UVBaseViewController<UIActionSheetDelegate, WKUIDelegate>
+@interface UVArticleViewController : UVBaseViewController<UIActionSheetDelegate, WKNavigationDelegate>
 
 @property (nonatomic, retain) UVArticle *article;
 @property (nonatomic, retain) WKWebView *webView;

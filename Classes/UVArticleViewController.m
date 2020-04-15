@@ -89,9 +89,9 @@
 }
 
 
-- (BOOL)webView:(UIWebView *)view shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    if (navigationType == UIWebViewNavigationTypeLinkClicked) {
-        return ![[UIApplication sharedApplication] openURL:request.URL];
+- (BOOL)webView:(WKWebView *)view decidePolicyForNavigationAction:(nonnull WKNavigationAction *)navigationAction decisionHandler:(nonnull void (^)(WKNavigationActionPolicy))decisionHandler {
+    if (navigationAction.navigationType == WKNavigationTypeLinkActivated) {
+        return ![[UIApplication sharedApplication] openURL:navigationAction.request.URL];
     }
     return YES;
 }
